@@ -2,7 +2,7 @@ public class Empleado extends Persona {
     private Departamento departamento;
     private String cargo;
 
-    public Empleado(String nombre, String apellido, String telefono, String direccion, Departamento departamento, String cargo) {
+    public Empleado(String nombre, String id, String apellido, String telefono, String direccion, Departamento departamento, String cargo) {
         super(nombre, apellido, telefono, direccion);
         this.departamento = departamento;
         this.cargo = cargo;
@@ -28,6 +28,11 @@ public class Empleado extends Persona {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " ( " + id + " ( - " + cargo + " Departamento: " + departamento.getNombre();
     }
 }
 

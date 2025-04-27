@@ -13,16 +13,14 @@ public class Producto implements Estadoable {
         this.proveedor = proveedor;
     }
 
-    @Override
-    public double calcularCosto() {
-        return precio;
+    public double calcularCosto(int cantidad) {
+        return precio * cantidad;
     }
 
     public boolean validar() {
         return nombre != null && !nombre.isEmpty() && precio > 0 && proveedor != null;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -61,6 +59,11 @@ public class Producto implements Estadoable {
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " ( " + id + " ) - $ " + precio + "por" + unidad.toString().toLowerCase();
     }
 }
 

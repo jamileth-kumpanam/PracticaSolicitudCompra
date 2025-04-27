@@ -1,4 +1,5 @@
 public class Persona {
+    protected String id;
     protected String nombre;
     protected String apellido;
     protected String telefono;
@@ -8,10 +9,23 @@ public class Persona {
     }
 
     public Persona(String nombre, String apellido, String telefono, String direccion) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.direccion = direccion;
+    }
+
+    public Persona(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public boolean validar() {

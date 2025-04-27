@@ -26,4 +26,9 @@ public class Proveedor extends Persona {
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " ( " + id + " ) - Telefono: " + telefono + "Productos: " + productos.size();
+    }
 }

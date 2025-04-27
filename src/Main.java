@@ -98,7 +98,7 @@ public class Main {
         System.out.println("Listar solicitudes de compra - en construcción.");
     }
 
-    public static void buscarProveedorPorID( {
+    public static void buscarProveedorPorID() {
         System.out.println("Buscar proveedor por ID - en construcción.");
     }
 
@@ -117,5 +117,7 @@ public class Main {
     public static void calcularTotalSolicitud() {
         System.out.println("Calcular total de una solicitud - en construcción.");
     }
+
+    //creo que solo falta el main
 
 }

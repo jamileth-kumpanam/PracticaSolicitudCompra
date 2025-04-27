@@ -13,7 +13,6 @@ public class DetalleCompra {
         return cantidad * precioUnitario;
     }
 
-    // Getters y Setters
     public Producto getProducto() {
         return producto;
     }
@@ -37,6 +36,10 @@ public class DetalleCompra {
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
-    //Actualizado
+
+    @Override
+    public String toString() {
+        return cantidad + " x " + producto.getNombre() + " = $" + calcularSubtotal();
+    }
 }
 

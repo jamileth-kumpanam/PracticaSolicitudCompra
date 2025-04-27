@@ -1,4 +1,3 @@
-// SolicitudCompra.java
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,52 +42,32 @@ public class SolicitudCompra implements Calculable {
         detalles.add(detalle);
     }
 
-    // Getters y Setters
     public String getNumeroSolicitud() {
         return numeroSolicitud;
-    }
-
-    public void setNumeroSolicitud(String numeroSolicitud) {
-        this.numeroSolicitud = numeroSolicitud;
     }
 
     public Date getFechaSolicitud() {
         return fechaSolicitud;
     }
 
-    public void setFechaSolicitud(Date fechaSolicitud) {
-        this.fechaSolicitud = fechaSolicitud;
-    }
-
     public EstadoSolicitud getEstado() {
         return estado;
-    }
-
-    public void setEstado(EstadoSolicitud estado) {
-        this.estado = estado;
     }
 
     public List<DetalleCompra> getDetalles() {
         return detalles;
     }
 
-    public void setDetalles(List<DetalleCompra> detalles) {
-        this.detalles = detalles;
-    }
-
     public Empleado getSolicitante() {
         return solicitante;
-    }
-
-    public void setSolicitante(Empleado solicitante) {
-        this.solicitante = solicitante;
     }
 
     public Proveedor getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
+    @Override
+    public String toString() {
+        return "Solicitud #" + numeroSolicitud + "Estado: " + estado + "Total: $" + calcularTotal();
     }
 }
