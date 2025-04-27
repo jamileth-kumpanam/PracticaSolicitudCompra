@@ -7,5 +7,6 @@ public class Persona {
     public boolean validar() {
         return false;
     }
+//constructores
 
 }
