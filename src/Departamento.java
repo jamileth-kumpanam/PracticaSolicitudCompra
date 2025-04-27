@@ -3,7 +3,7 @@ public class Departamento {
         private String nombre;
         private double presupuesto;
         private String responsable;
-
+    //Hola te sirve?
         // Constructor, getters y setters
         public Departamento(int id, String nombre, double presupuesto, String responsable) {
             this.id = id;
