@@ -1,38 +1,48 @@
-public class Empleado extends Persona {
+public class Empleado {
+    private String id;
+    private String nombre;
+    private String telefono;
+    private String direccion;
     private Departamento departamento;
     private String cargo;
 
-    public Empleado(String nombre, String id, String apellido, String telefono, String direccion, Departamento departamento, String cargo) {
-        super(nombre, apellido, telefono, direccion);
+    public Empleado(String id, String nombre, String telefono, String direccion, Departamento departamento, String cargo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
         this.departamento = departamento;
         this.cargo = cargo;
     }
 
-    @Override
-    public boolean validar() {
-        return nombre != null && !nombre.isEmpty() && departamento != null;
+    public String getId() {
+        return id;
     }
 
-    // Getters y Setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
     public Departamento getDepartamento() {
         return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
     }
 
     public String getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
     @Override
     public String toString() {
-        return nombre + " ( " + id + " ( - " + cargo + " Departamento: " + departamento.getNombre();
+        return nombre + " (" + id + ") - " + cargo + " en " + departamento.getNombre();
     }
 }
+
 

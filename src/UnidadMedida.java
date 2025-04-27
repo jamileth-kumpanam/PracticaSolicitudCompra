@@ -1,6 +1,7 @@
 public enum UnidadMedida {
     UNIDAD,
-    KILO,
     LITRO,
+    KILO,
     METRO
 }
+

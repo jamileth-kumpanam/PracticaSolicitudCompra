@@ -1,23 +1,21 @@
 public class Departamento {
-    private int id;
+    private String codigo;
     private String nombre;
     private double presupuesto;
-    private String responsable;
+    private Empleado responsable;
 
-    public Departamento(int id, String nombre, double presupuesto, String responsable) {
-        this.id = id;
+    public Departamento(String codigo, String nombre, double presupuesto) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.presupuesto = presupuesto;
-        this.responsable = responsable;
     }
 
-    // Getters y Setters
-    public int getId() {
-        return id;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -36,18 +34,19 @@ public class Departamento {
         this.presupuesto = presupuesto;
     }
 
-    public String getResponsable() {
+    public Empleado getResponsable() {
         return responsable;
     }
 
-    public void setResponsable(String responsable) {
+    public void setResponsable(Empleado responsable) {
         this.responsable = responsable;
     }
 
     @Override
     public String toString() {
-        return nombre + "(" + id + ") - Presupuesto: $ " + presupuesto;
+        return nombre + " (" + codigo + ") - Presupuesto: $" + presupuesto;
     }
 }
+
 
 

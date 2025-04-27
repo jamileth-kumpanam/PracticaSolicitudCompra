@@ -1,11 +1,11 @@
-public class Producto implements Estadoable {
-    private int id;
+public class Producto {
+    private String id;
     private String nombre;
     private double precio;
     private UnidadMedida unidad;
     private Proveedor proveedor;
 
-    public Producto(int id, String nombre, double precio, UnidadMedida unidad, Proveedor proveedor) {
+    public Producto(String id, String nombre, double precio, UnidadMedida unidad, Proveedor proveedor) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -13,57 +13,31 @@ public class Producto implements Estadoable {
         this.proveedor = proveedor;
     }
 
-    public double calcularCosto(int cantidad) {
-        return precio * cantidad;
-    }
-
-    public boolean validar() {
-        return nombre != null && !nombre.isEmpty() && precio > 0 && proveedor != null;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public double getPrecio() {
         return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public UnidadMedida getUnidad() {
         return unidad;
     }
 
-    public void setUnidad(UnidadMedida unidad) {
-        this.unidad = unidad;
-    }
-
     public Proveedor getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
     @Override
     public String toString() {
-        return nombre + " ( " + id + " ) - $ " + precio + "por" + unidad.toString().toLowerCase();
+        return "ID: " + id + ", Nombre: " + nombre + ", Precio: " + precio + ", Unidad: " + unidad;
     }
 }
+
+
 

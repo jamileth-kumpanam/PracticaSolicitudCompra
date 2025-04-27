@@ -1,73 +1,56 @@
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class SolicitudCompra implements Calculable {
-    private String numeroSolicitud;
-    private Date fechaSolicitud;
-    private EstadoSolicitud estado;
-    private List<DetalleCompra> detalles;
-    private Empleado solicitante;
+public class SolicitudCompra {
+    private String numero;
     private Proveedor proveedor;
+    private List<DetalleCompra> detalles;
+    private EstadoSolicitud estado;
 
-    public SolicitudCompra() {
+    public SolicitudCompra(String numero, Proveedor proveedor) {
+        this.numero = numero;
+        this.proveedor = proveedor;
         this.detalles = new ArrayList<>();
-        this.estado = EstadoSolicitud.SOLICITADA;
+        this.estado = EstadoSolicitud.PENDIENTE;
     }
 
-    public double calcularTotal() {
-        double total = 0;
-        for (DetalleCompra detalle : detalles) {
-            total += detalle.calcularSubtotal();
-        }
-        return total;
-    }
-
-    @Override
-    public void aprobar() {
-        this.estado = EstadoSolicitud.APROBADA;
-    }
-
-    @Override
-    public void rechazar() {
-        this.estado = EstadoSolicitud.RECHAZADA;
-    }
-
-    @Override
-    public void enviarRevision() {
-        this.estado = EstadoSolicitud.EN_REVISION;
-    }
-
-    public void agregarDetalle(DetalleCompra detalle) {
+    public void agregarDetalle(Producto producto, int cantidad) {
+        DetalleCompra detalle = new DetalleCompra(producto, cantidad);
         detalles.add(detalle);
     }
 
-    public String getNumeroSolicitud() {
-        return numeroSolicitud;
-    }
-
-    public Date getFechaSolicitud() {
-        return fechaSolicitud;
-    }
-
-    public EstadoSolicitud getEstado() {
-        return estado;
-    }
-
-    public List<DetalleCompra> getDetalles() {
-        return detalles;
-    }
-
-    public Empleado getSolicitante() {
-        return solicitante;
+    public String getNumero() {
+        return numero;
     }
 
     public Proveedor getProveedor() {
         return proveedor;
     }
 
+    public List<DetalleCompra> getDetalles() {
+        return detalles;
+    }
+
+    public EstadoSolicitud getEstado() {
+        return estado;
+    }
+
+    public void cambiarEstado(EstadoSolicitud nuevoEstado) {
+        this.estado = nuevoEstado;
+    }
+
+    public double calcularTotal() {
+        double total = 0;
+        for (DetalleCompra detalle : detalles) {
+            total += detalle.getProducto().getPrecio() * detalle.getCantidad();
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
-        return "Solicitud #" + numeroSolicitud + "Estado: " + estado + "Total: $" + calcularTotal();
+        return "Número: " + numero + ", Proveedor: " + proveedor.getNombre() + ", Estado: " + estado;
     }
 }
+
+
