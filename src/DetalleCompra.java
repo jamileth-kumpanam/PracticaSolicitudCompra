@@ -37,5 +37,6 @@ public class DetalleCompra {
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
+    //Actualizado
 }
 
