@@ -197,7 +197,7 @@ public class Main {
         }
 
         solicitudes.add(solicitud);
-        System.out.println("Solicitud registrada exitosamente!");
+        System.out.println("✅ Solicitud registrada exitosamente!");
     }
 
     private static void listarProveedores() {
