@@ -1,11 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class Proveedor {
-    private String id;
-    private String nombre;
-    private String telefono;
-    private String direccion;
+public class Proveedor extends Persona{
     private List<Producto> productos;
 
     public Proveedor(String id, String nombre, String telefono, String direccion) {

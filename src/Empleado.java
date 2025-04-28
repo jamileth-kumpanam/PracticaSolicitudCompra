@@ -1,8 +1,4 @@
-public class Empleado {
-    private String id;
-    private String nombre;
-    private String telefono;
-    private String direccion;
+public class Empleado extends Persona{
     private Departamento departamento;
     private String cargo;
 

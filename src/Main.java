@@ -35,14 +35,20 @@ public class Main {
                     listarSolicitudes();
                     break;
                 case 7:
-                    buscarProveedorPorId();
-                    break;
+                {
+                    String id = leerCadena("Ingrese el ID del proveedor: ");
+                        buscarProveedorPorId(id);
+                    }
                 case 8:
-                    buscarProductoPorNombre();
-                    break;
-                case 9:
-                    buscarSolicitudPorNumero();
-                    break;
+                {
+                    String nombre = leerCadena("Ingrese el nombre del producto: ");
+                    buscarProductoPorNombre(nombre);
+                }
+               case 9:
+               {
+                    String numero = leerCadena("Ingrese el número de solicitud: ");
+                    buscarSolicitudPorNumero(numero);
+                    }
                 case 10:
                     cambiarEstadoSolicitud();
                     break;
@@ -58,17 +64,36 @@ public class Main {
         }
     }
 
-    private static void buscarSolicitudPorNumero() {
+    private static SolicitudCompra buscarSolicitud(String numero) {
+        for (SolicitudCompra solicitud : solicitudes) {
+            if (solicitud.getNumero().equalsIgnoreCase(numero)) {
+                return solicitud;
+            }
+        }
+        return null;
     }
 
-    private static void buscarProductoPorNombre() {
+    private static Producto buscarProductoPorNombre(String id) {
+        for (Producto producto : productos) {
+            if (producto.getId().equalsIgnoreCase(id)) {
+                return producto;
+            }
+        }
+        return null;
     }
 
-    private static void buscarProveedorPorId() {
+    private static Proveedor buscarProveedorPorId(String id) {
+        for (Proveedor proveedor : proveedores) {
+            if (proveedor.getId().equalsIgnoreCase(id)) {
+                return proveedor;
+            }
+        }
+        return null;
     }
+
 
     private static void mostrarMenuPrincipal() {
-        System.out.println("\n===== SISTEMA DE GESTIÓN DE COMPRAS ERP =====");
+        System.out.println("*****SISTEMA DE GESTIÓN DE COMPRAS ERP ****");
         System.out.println("1. Registrar proveedor");
         System.out.println("2. Registrar producto");
         System.out.println("3. Registrar solicitud de compra");
@@ -82,19 +107,22 @@ public class Main {
         System.out.println("11. Calcular total de una solicitud");
         System.out.println("12. Salir");
     }
-
-    private static int leerEntero(String mensaje) {
-        int numero = -1;
-        while (numero == -1) {
-            try {
-                System.out.print(mensaje);
-                numero = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Por favor ingrese un número entero válido.");
-            }
+    public static int leerEntero(String mensaje) {
+        System.out.print(mensaje);
+        while (!scanner.hasNextInt()) {
+            System.out.print("Entrada inválida. Ingrese un número entero: ");
+            scanner.next();
         }
-        return numero;
+        return scanner.nextInt();
     }
+
+    public static String leerCadena(String mensaje) {
+        System.out.print(mensaje);
+        scanner.nextLine();
+        return scanner.nextLine();
+    }
+
+
 
     private static String leerTexto(String mensaje) {
         System.out.print(mensaje);
